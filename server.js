@@ -1,9 +1,14 @@
-// server.js
-// where your node app starts
+//allows to use environment variables in .env file
+require('dotenv').config()
 
-// init project
+// express framework
 const express = require('express');
 const app = express();
+
+//mongo connection
+// const mongo = require('./controllers/mongo.js');
+// mongo.connectToMongoDB().catch(console.error);
+
 
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/static'));  //static files
@@ -12,14 +17,17 @@ app.use(express.static(__dirname + '/static'));  //static files
 app.use(express.static('.'));
 
 // Listen for requests
-app.set("port", (process.env.PORT || 5000)); // sets the port to 5000
+app.set("port", process.env.PORT ); 
 app.listen(app.get("port"), () => {
 	console.log("Now listening for connection on port: " + app.get("port"));
 });
 
 
 
-//request defining stuff:
+//ROUTES
+app.use('/contacts', require('./routes/contacts.js'));
+
+
 app.get('/', (req, res) => {
     res.render('../views/index.ejs');
 });
