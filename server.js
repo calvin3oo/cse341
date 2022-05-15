@@ -6,6 +6,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require("body-parser");
 //Swagger documentation
+const router = require('express').Router();
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 
