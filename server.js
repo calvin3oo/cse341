@@ -36,10 +36,10 @@ app.listen(app.get("port"), () => {
 	console.log("Now listening for connection on port: " + app.get("port"));
 });
 
-
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-
 //ROUTES
+router.use('/api-docs', swaggerUi.serve);
+router.get('/api-docs', swaggerUi.setup(swaggerDocument));
+
 app.use('/contacts', require('./routes/contacts.js'));
 
 
