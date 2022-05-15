@@ -5,6 +5,9 @@ require('dotenv').config()
 const express = require('express');
 const app = express();
 const bodyParser = require("body-parser");
+//Swagger documentation
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
 
 //mongo connection
 // const mongo = require('./controllers/mongo.js');
@@ -18,8 +21,23 @@ app.use(express.static(__dirname + '/static'));  //static files
 app.use(express.static('.'));
 
 //make request bodies into json 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app
+    .use(bodyParser.json())
+    .use(bodyParser.urlencoded({extended: true}))
+    //cors allowing from requsets from react app
+    .use((req,res,next) => {
+        res.setHeader('Access-Control-Allow-Origin','*');
+        res.setHeader(
+            'Access-Control-Allow-Headers',
+            'Origin, X-Requested-With, Content-Type, Accept, Z-Key'
+        );
+        res.setHeader('Content-Type', 'application/json');
+        res.setHeader(
+            'Access-Control-Allow-Methods', 
+            'POST, GET, PUT, DELETE, OPTIONS'
+        );
+        next();
+    })
 
 // Listen for requests
 app.set("port", process.env.PORT ); 
@@ -28,6 +46,7 @@ app.listen(app.get("port"), () => {
 });
 
 
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 //ROUTES
 app.use('/contacts', require('./routes/contacts.js'));
