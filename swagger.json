@@ -30,7 +30,16 @@
       },
       "post": {
         "description": "",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "body format",
+            "schema": {
+              "$ref": "#/definitions/addUser"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -63,6 +72,14 @@
             "in": "path",
             "required": true,
             "type": "string"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "body format",
+            "schema": {
+              "$ref": "#/definitions/updateUser"
+            }
           }
         ],
         "responses": {
@@ -85,6 +102,65 @@
           "200": {
             "description": "OK"
           }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "addUser": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "example": "name"
+        },
+        "lastName": {
+          "type": "string",
+          "example": "last"
+        },
+        "email": {
+          "type": "string",
+          "example": "email"
+        },
+        "favoriteColor": {
+          "type": "string",
+          "example": "color"
+        },
+        "birthday": {
+          "type": "string",
+          "example": "birthday"
+        }
+      },
+      "required": [
+        "firstName",
+        "lastName",
+        "email",
+        "favoriteColor",
+        "birthday"
+      ]
+    },
+    "updateUser": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "example": "name"
+        },
+        "lastName": {
+          "type": "string",
+          "example": "last"
+        },
+        "email": {
+          "type": "string",
+          "example": "email"
+        },
+        "favoriteColor": {
+          "type": "string",
+          "example": "color"
+        },
+        "birthday": {
+          "type": "string",
+          "example": "birthday"
         }
       }
     }

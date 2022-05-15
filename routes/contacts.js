@@ -62,6 +62,11 @@ router.get('/:docID', async (req, res) => {
  * }
  */
 router.post('/', async (req, res) => {
+    /*  #swagger.parameters['obj'] = {
+            in: 'body',
+            description: 'body format',
+            schema: { $ref: '#/definitions/addUser' }
+    } */
     const client = await mongo.connectToMongoDB();
     const col = client.db("cse341").collection("contacts");
     var newDoc = {};
@@ -80,6 +85,11 @@ router.post('/', async (req, res) => {
 //update a document with the ID provided
 //the body contains the updates to the document
 router.put('/:docID', async (req, res) => {
+    /*  #swagger.parameters['obj'] = {
+            in: 'body',
+            description: 'body format',
+            schema: { $ref: '#/definitions/updateUser' }
+    } */
     const client = await mongo.connectToMongoDB();
     const col = client.db("cse341").collection("contacts");
 
