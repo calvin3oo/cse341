@@ -4,6 +4,7 @@ require('dotenv').config()
 // express framework
 const express = require('express');
 const app = express();
+var cors = require('cors');
 const bodyParser = require("body-parser");
 //Swagger documentation
 const router = require('express').Router();
@@ -16,6 +17,7 @@ const swaggerDocument = require('./swagger.json');
 
 
 app.set('view engine', 'ejs'); //using ejs
+app.use(cors());
 app.use(express.static(__dirname + '/static'));  //static files
 
 //http://expressjs.com/en/starter/static-files.html
