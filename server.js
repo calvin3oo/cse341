@@ -29,8 +29,7 @@ app
     /*.use((req,res,next) => {
         res.setHeader('Access-Control-Allow-Origin','*');
         next();
-    })*/
-   .use('/api-docs', swaggerUi.serve);
+    })*/;
 
 // Listen for requests
 app.set("port", process.env.PORT ); 
@@ -39,7 +38,7 @@ app.listen(app.get("port"), () => {
 });
 
 //ROUTES
-router.get('/api-docs', swaggerUi.setup(swaggerDocument));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use('/contacts', require('./routes/contacts.js'));
 
