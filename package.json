@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "local": "webpack && nodemon server.js",
     "swag": "node swagger.js",
-    "start": "webpack && node swagger.js"
+    "start": "node swagger.js"
   },
   "repository": {
     "type": "git",
