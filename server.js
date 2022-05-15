@@ -25,10 +25,10 @@ app
     .use(bodyParser.json())
     .use(bodyParser.urlencoded({extended: true}))
     //cors allowing from requsets from react app
-    .use((req,res,next) => {
+    /*.use((req,res,next) => {
         res.setHeader('Access-Control-Allow-Origin','*');
         next();
-    })
+    })*/;
 
 // Listen for requests
 app.set("port", process.env.PORT ); 
