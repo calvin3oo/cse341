@@ -1,11 +1,11 @@
 #For testing, Replace "calvin3oo-cse-341.herokuapp.com" with "localhost:5000"
 GET http://calvin3oo-cse-341.herokuapp.com/
 ################################
-GET http://calvin3oo-cse-341.herokuapp.com/contacts/allDocuments/
+GET http://calvin3oo-cse-341.herokuapp.com/contacts/
 ################################
-GET http://calvin3oo-cse-341.herokuapp.com/contacts/findDocument?id=626c94017e3594d1cc08fb5d
+GET http://calvin3oo-cse-341.herokuapp.com/contacts/62807a1613732ff2d7e9ebce
 ################################
-POST http://calvin3oo-cse-341.herokuapp.com/contacts/new
+POST http://calvin3oo-cse-341.herokuapp.com/contacts/
 content-type: application/json
 
 {

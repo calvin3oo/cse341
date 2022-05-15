@@ -37,7 +37,7 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:docID', async (req, res) => {
-    const id = ObjectId(req.params.id);
+    const id = ObjectId(req.params.docID);
     const client = await mongo.connectToMongoDB();
 
     const col = client.db("cse341").collection("contacts");
