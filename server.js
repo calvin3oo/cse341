@@ -49,7 +49,7 @@ app.get('/', (req, res) => {
     res.render('../views/index.ejs');
 });
 
-app.get('/get-name', (req, res) => {
+/*app.get('/get-name', (req, res) => {
     res.send('Calvin Olson');
-})
+})*/
 

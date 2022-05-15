@@ -26,7 +26,7 @@ const entrys = [
     }
 ];
 
-router.get('/allDocuments', async (req, res) => {
+router.get('/', async (req, res) => {
     const client = await mongo.connectToMongoDB();
     const col = client.db("cse341").collection("contacts");
 
@@ -36,9 +36,8 @@ router.get('/allDocuments', async (req, res) => {
     client.close();
 });
 
-//format: ?id=xxxxxx
-router.get('/findDocument', async (req, res) => {
-    const id = ObjectId(req.query.id);
+router.get('/:docID', async (req, res) => {
+    const id = ObjectId(req.params.id);
     const client = await mongo.connectToMongoDB();
 
     const col = client.db("cse341").collection("contacts");
@@ -62,7 +61,7 @@ router.get('/findDocument', async (req, res) => {
  *  birthday: "birthday"
  * }
  */
-router.post('/new', async (req, res) => {
+router.post('/', async (req, res) => {
     const client = await mongo.connectToMongoDB();
     const col = client.db("cse341").collection("contacts");
     var newDoc = {};

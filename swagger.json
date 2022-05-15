@@ -18,7 +18,7 @@
         "responses": {}
       }
     },
-    "/get-name": {
+    "/contacts/": {
       "get": {
         "description": "",
         "parameters": [],
@@ -27,37 +27,7 @@
             "description": "OK"
           }
         }
-      }
-    },
-    "/contacts/allDocuments": {
-      "get": {
-        "description": "",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/contacts/findDocument": {
-      "get": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/contacts/new": {
+      },
       "post": {
         "description": "",
         "parameters": [],
@@ -69,6 +39,22 @@
       }
     },
     "/contacts/{docID}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "docID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
       "put": {
         "description": "",
         "parameters": [
